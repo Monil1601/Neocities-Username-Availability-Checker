@@ -25,9 +25,11 @@ try:
        for i in (f.read()).split():
                      req=requests.get("https://"+i+".neocities.org")
                      if req.status_code==404:
-                         print(i)
+                         print(i+ "\tFree")
                          with open(sys.argv[1]+'_result','a+') as fr:
                                 fr.write(i+'\n')
+                     else:
+                         print(i+ "\tTaken")
        f.close()
 
 except KeyboardInterrupt:
